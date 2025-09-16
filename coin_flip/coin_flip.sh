@@ -15,29 +15,38 @@ coin_flip_result=$(($RANDOM % 2))
 echo "The Coin Flip Result is..."
 sleep 1
 
-if [[$coin_flip_result -eq 0]]; then
+if [[ $coin_flip_result -eq 0 ]]; then
     echo "Heads"
+    
 else
     echo "Tails"
+    
 fi
 
 
 sleep 1
-if [[coin_flip_answer != "H" || $coin_flip_answer != "T"]]; then
+if [[ $coin_flip_answer != "H" && $coin_flip_answer != "T" ]]; then
     echo "Your answer was not even Head ors Tails... "
     exit 1
-elif [[coin_flip_answer == "H" && $coin_flip_result == 0]]; then
+    
+elif [[ $coin_flip_answer == "H" && $coin_flip_result == 0 ]]; then
     echo "Your answer was correct"
     sleep 1
     echo "Congratulations"
+    exit 1
+    
 
-elif [[coin_flip_answer == "T" && $coin_flip_result == 1]]; then
+
+elif [[ $coin_flip_answer == "T" && $coin_flip_result == 1 ]]; then
     echo "Your answer was correct"
     sleep 1
     echo "Congratulations"
+    exit 1
+    
 
 else
-    ehco "Your answer was incorrect"
+    echo "Your answer was incorrect"
     exit 1
+    
 fi
     
